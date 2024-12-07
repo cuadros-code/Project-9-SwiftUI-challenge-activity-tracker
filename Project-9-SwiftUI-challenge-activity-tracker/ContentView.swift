@@ -8,14 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var openSheet = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            ZStack(alignment: .bottomTrailing) {
+                VStack {
+                    List(0..<10) { i in
+                        
+                    }
+                }
+                
+                FloatingActionButton(icon: "plus") {
+                    openSheet.toggle()
+                }
+            }
+            
+            .sheet(isPresented: $openSheet, content: {
+                Text("")
+            })
+            
+            .navigationTitle("Activity tracker")
         }
-        .padding()
+        
     }
 }
 
