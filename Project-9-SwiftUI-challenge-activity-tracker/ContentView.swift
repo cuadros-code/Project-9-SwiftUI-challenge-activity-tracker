@@ -26,7 +26,7 @@ struct ContentView: View {
             }
             
             .sheet(isPresented: $openSheet, content: {
-                Text("")
+                AddActivity()
             })
             
             .navigationTitle("Activity tracker")
