@@ -57,7 +57,7 @@ struct ContentView: View {
                                 Spacer()
                                 HStack {
                                     Button {
-                                        print("Minus")
+                                        addCount(i, -1)
                                     } label: {
                                         Image(systemName: "minus.circle")
                                             .font(.title2)
@@ -68,7 +68,7 @@ struct ContentView: View {
                                     Text("\(i.countActivity)")
                                     
                                     Button {
-                                        print("Add")
+                                        addCount(i, 1)
                                     } label: {
                                         Image(systemName: "plus.circle")
                                             .font(.title2)
@@ -103,6 +103,17 @@ struct ContentView: View {
     
     func remoteItem(_ at: IndexSet) {
         activities.items.remove(atOffsets: at)
+    }
+    
+    func addCount(_ at: ActivityItem, _ operation: Int) {
+        activities.items = activities.items.map { item in
+            if(item.id == at.id) {
+                var activity = item
+                activity.countActivity = activity.countActivity + operation
+                return activity
+            }
+            return item
+        }
     }
     
 }
