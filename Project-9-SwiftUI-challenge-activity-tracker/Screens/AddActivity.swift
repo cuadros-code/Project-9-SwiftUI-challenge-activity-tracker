@@ -10,11 +10,20 @@ import SwiftUI
 struct AddActivity: View {
     
     @Environment(\.dismiss) private var dismiss
+    @State private var title: String = "Title"
+    @State private var description: String = "Description content"
+    
+    var activities: Activity
     
     var body: some View {
         NavigationStack {
-            VStack {
-                
+            Form {
+                Section("Add title") {
+                    TextField("Title", text: $title)
+                }
+                Section("Add a description") {
+                    TextField("Description", text: $description)
+                }
             }
             
             .toolbar {
@@ -26,14 +35,24 @@ struct AddActivity: View {
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save"){
-                        dismiss()
+                        saveItem()
                     }
                 }
             }
         }
     }
+    
+    func saveItem(){
+        let item = ActivityItem(
+            title: title,
+            description: description,
+            countActivity: 0
+        )
+        activities.items.append(item)
+        dismiss()
+    }
 }
 
 #Preview {
-    AddActivity()
+    AddActivity(activities: Activity())
 }
