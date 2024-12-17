@@ -48,6 +48,10 @@ struct ContentView: View {
             Section {
                 VStack {
                     List {
+                        HStack() {
+                            Text("Total task: \(activities.items.count)")
+                            Spacer()
+                        }
                         ForEach(activities.items) { i in
                             HStack() {
                                 VStack(alignment: .leading) {

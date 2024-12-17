@@ -46,7 +46,7 @@ struct AddActivity: View {
         let item = ActivityItem(
             title: title,
             description: description,
-            countActivity: 0
+            countActivity: 1
         )
         activities.items.append(item)
         dismiss()
