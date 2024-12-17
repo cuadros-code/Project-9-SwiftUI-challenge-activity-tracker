@@ -91,6 +91,9 @@ struct ContentView: View {
             .navigationTitle("Activity tracker")
             
             .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    EditButton()
+                }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Add activity") {
                         openSheet.toggle()
