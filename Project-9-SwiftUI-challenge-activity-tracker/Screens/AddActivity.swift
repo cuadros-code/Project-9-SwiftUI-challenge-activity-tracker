@@ -10,8 +10,8 @@ import SwiftUI
 struct AddActivity: View {
     
     @Environment(\.dismiss) private var dismiss
-    @State private var title: String = "Title"
-    @State private var description: String = "Description content"
+    @State private var title: String = ""
+    @State private var description: String = ""
     
     var activities: Activity
     
